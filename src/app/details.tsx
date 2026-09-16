@@ -1,5 +1,7 @@
+import { getCurrentWeather } from '@/services/weatherServices';
 import { detailsStyles } from '@/styles/details.styles';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useEffect } from 'react';
 import {
   ActivityIndicator,
   ScrollView,
@@ -16,7 +18,16 @@ export default function Details() {
   const router = useRouter();
   const { cityName } = useLocalSearchParams<{ cityName: string }>();
 
-  console.log(cityName);
+  useEffect(() => {
+    if(!cityName) return;
+
+    const getWeatherData = async () => {
+      const result = await getCurrentWeather(cityName as string);
+      console.log(result);
+    };
+
+    getWeatherData();
+  }, [cityName]);
 
 
   return (
