@@ -52,4 +52,34 @@ export const detailsStyles = StyleSheet.create({
     color: colors.textSecondary,
     marginTop: spacing.md,
   },
+
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.xl * 2,
+  },
+
+  errorText: {
+    ...typography.body,
+    color: colors.error,
+    textAlign: 'center',
+    marginBottom: spacing.lg,
+  },
+
+  return: {
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  retryButtonText: {
+    color: colors.cardBackground,
+    fontSize: 16,
+    fontWeight: '600',
+  },
 });

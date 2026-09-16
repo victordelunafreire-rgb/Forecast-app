@@ -51,3 +51,7 @@ export const getCurrentWeather = async (cityName: string): Promise<WeatherResult
     };
   }
 };
+
+export const getWeatherIcon = (iconCode: string): string => {
+  return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+};
