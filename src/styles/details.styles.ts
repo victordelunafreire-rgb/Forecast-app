@@ -15,6 +15,7 @@ export const detailsStyles = StyleSheet.create({
   backButton: {
     padding: spacing.md,
     marginTop: spacing.md,
+    fontSize: 24,
   },
 
   backButtonText: {
@@ -54,18 +55,16 @@ export const detailsStyles = StyleSheet.create({
   },
 
   errorContainer: {
-    flex: 1,
-    justifyContent: 'center',
+    padding: spacing.md,
     alignItems: 'center',
-    paddingHorizontal: spacing.xl,
-    paddingVertical: spacing.xl * 2,
   },
 
   errorText: {
-    ...typography.body,
     color: colors.error,
+    fontSize: 20,
     textAlign: 'center',
-    marginBottom: spacing.lg,
+    marginBottom: spacing.md,
+    fontWeight: '600',
   },
 
   return: {
@@ -75,6 +74,14 @@ export const detailsStyles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  retryButton: {
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    padding: spacing.md,
+    paddingHorizontal: spacing.lg,
+    marginTop: spacing.md,
   },
 
   retryButtonText: {

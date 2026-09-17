@@ -56,7 +56,7 @@ export default function Details() {
       <ScrollView style={detailsStyles.container}>
         <TouchableOpacity style={detailsStyles.backButton} onPress={() => router.back()}>
           <Text style={detailsStyles.backButtonText}>
-            ⭠ Voltar
+            ← Voltar
           </Text>
         </TouchableOpacity>
 

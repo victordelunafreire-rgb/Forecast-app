@@ -16,11 +16,11 @@ export default function WeatherCard ({ weather }: WeatherProps) {
     <View style={weatherCardStyles.card}>
       <Text style={weatherCardStyles.cityName}>{weather.name}</Text>
 
-      {weather.weather[0].icon} && <Image 
+      {weather.weather[0].icon && <Image
         source={{ uri: getWeatherIcon(weather.weather[0].icon) }}
         style={weatherCardStyles.weatherIcon}
-      
-      />
+
+      />}
 
       <Text style={weatherCardStyles.temperature}>
         {Math.round(weather.main.temp)} °C
