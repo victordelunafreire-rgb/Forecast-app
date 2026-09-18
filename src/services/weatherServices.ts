@@ -1,4 +1,4 @@
-import { WeatherData } from '@/types/weather';
+import { WeatherData, WeatherError } from '@/types/weather';
 import { create, isAxiosError } from 'axios';
 
 
@@ -77,7 +77,7 @@ export const getCurrentWeather = async (cityName: string): Promise<WeatherResult
     };
 
   } catch(err) {
-    if (isAxiosError(err)) {
+    if (isAxiosError<WeatherError>(err)) {
 
       if(err.response){
         return {
@@ -104,6 +104,47 @@ export const getCurrentWeather = async (cityName: string): Promise<WeatherResult
     };
   }
 };
+
+export const getCurrentWeatherByCoords = 
+  async (latitude: number, longitude: number): Promise<WeatherResult> => {
+
+    try {
+      const response = await api.get<WeatherData>('/weather', {
+        params: {
+          lat: latitude,
+          lon: longitude,
+        },
+      });
+
+      return {
+        success: true,
+        data: response.data,
+      };
+
+
+    } catch(err){
+      if(isAxiosError<WeatherError>(err)){
+        if(err.response){
+          return {
+            success: false,
+            error: getErrorMessage(err.response.status),
+          };
+        } else if(err.request){
+          return {
+            success: false,
+            error: 'Sem conexão com o servidor, tente novamente',
+          };
+        }
+      }
+
+
+      return {
+        success: false,
+        error: 'Erro ao buscar clima',
+      };
+
+    }
+  };
 
 export const getWeatherIcon = (iconCode: string): string => {
   return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;

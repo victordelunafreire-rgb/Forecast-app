@@ -35,4 +35,21 @@ export const homeStyles = StyleSheet.create({
     ...typography.body,
     textAlign:'center',
   },
+
+  gpsButton: {
+    backgroundColor: colors.primary,
+    marginHorizontal: spacing.md,
+    marginTop: spacing.md,
+    paddingVertical: spacing.sm +4,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 48,
+  },
+
+  gpsButtonText: {
+    color: colors.background,
+    fontSize: 16,
+    fontWeight: '600',
+  },
 });
