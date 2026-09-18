@@ -5,7 +5,7 @@ export const colors = {
 
   // Background
   background: '#F5F5F5',
-  cardBackground: '#FFFFFF',
+  cardBackground: '#FFFFFF', 
 
   // Texto
   text: '#333333',
@@ -14,6 +14,7 @@ export const colors = {
 
   // Status
   error: '#E74C3C',
+  badRequest: '#FF0000',
   success: '#2ECC71',
   warning: '#F39C12',
 

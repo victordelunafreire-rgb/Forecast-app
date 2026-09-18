@@ -1,6 +1,7 @@
 import { getWeatherIcon } from '@/services/weatherServices';
 import { weatherCardStyles } from '@/styles/weatherCard.styles';
 import { WeatherData } from '@/types/weather';
+import { changeTempColor } from '@/utils/temperature';
 import { Image, Text, View } from 'react-native';
 
 
@@ -9,6 +10,8 @@ interface WeatherProps {
 }
 
 export default function WeatherCard ({ weather }: WeatherProps) {
+
+  const temperatureColor = changeTempColor(weather.main.temp);
 
 
   return (
@@ -22,7 +25,7 @@ export default function WeatherCard ({ weather }: WeatherProps) {
 
       />}
 
-      <Text style={weatherCardStyles.temperature}>
+      <Text style={[weatherCardStyles.temperature, { color: temperatureColor }]}>
         {Math.round(weather.main.temp)} °C
       </Text>
 
